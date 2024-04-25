@@ -52,8 +52,25 @@ void enlarge(HashMap * map) {
 
 
 HashMap * createMap(long capacity) {
+  HashMap* map = (HashMap*)malloc(sizeof(HashMap));
+    if (map == NULL) {
+        return NULL;
+    }
 
-    return NULL;
+    map->buckets = (Bucket**)malloc(capacity * sizeof(Bucket*));
+    if (map->buckets == NULL) {
+        free(map);
+        return NULL; 
+    }
+
+    for (long i = 0; i < capacity; i++) {
+        map->buckets[i] = NULL;
+    }
+
+    map->capacity = capacity;
+    map->current = -1; 
+  
+    return map;
 }
 
 void eraseMap(HashMap * map,  char * key) {    

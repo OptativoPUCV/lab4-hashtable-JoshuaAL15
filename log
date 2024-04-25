@@ -1,0 +1,14 @@
+Thu 25 Apr 2024 04:03:23 PM UTC: 
+ hashmap.c | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+In file included from test.c:4:
+hashmap.c: In function ‘createMap’:
+hashmap.c:60:21: error: ‘Bucket’ undeclared (first use in this function)
+   60 |     map->buckets = (Bucket**)malloc(capacity * sizeof(Bucket*));
+      |                     ^~~~~~
+hashmap.c:60:21: note: each undeclared identifier is reported only once for each function it appears in
+hashmap.c:60:29: error: expected expression before ‘)’ token
+   60 |     map->buckets = (Bucket**)malloc(capacity * sizeof(Bucket*));
+      |                             ^
+Compilation failed
+c45714c
