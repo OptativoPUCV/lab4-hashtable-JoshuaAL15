@@ -57,7 +57,7 @@ HashMap * createMap(long capacity) {
         return NULL;
     }
 
-    map->buckets = (Bucket**)malloc(capacity * sizeof(Bucket*));
+    map->buckets = (Bucket*)malloc(capacity * sizeof(Bucket*));
     if (map->buckets == NULL) {
         free(map);
         return NULL; 
