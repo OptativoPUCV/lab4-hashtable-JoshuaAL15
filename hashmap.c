@@ -11,9 +11,9 @@ int enlarge_called=0;
 
 struct HashMap {
     Pair ** buckets;
-    long size; //cantidad de datos/pairs en la tabla
-    long capacity; //capacidad de la tabla
-    long current; //indice del ultimo dato accedido
+    long size; 
+    long capacity;
+    long current; 
 };
 
 Pair *createPair(char *key, void *value) {
@@ -41,10 +41,9 @@ int is_equal(void *key1, void *key2) {
 void insertMap(HashMap *map, char *key, void *value) {
     long idx = hash(key, map->capacity);
 
-    // Linear probing in case of collision
     while (map->buckets[idx] != NULL && map->buckets[idx]->key != NULL) {
         if (is_equal(map->buckets[idx]->key, key)) {
-            map->buckets[idx]->value = value; // Update the value if key already exists
+            map->buckets[idx]->value = value;
             return;
         }
         idx = (idx + 1) % map->capacity;
@@ -54,11 +53,11 @@ void insertMap(HashMap *map, char *key, void *value) {
     map->size++;
 
     if ((double)map->size / map->capacity > 0.75) {
-        enlarge(map); // Resize if load factor > 0.75
+        enlarge(map); 
     }
 }
 void enlarge(HashMap *map) {
-    enlarge_called = 1; // no borrar (testing purposes)
+    enlarge_called = 1; 
 
     Pair **old_buckets = map->buckets;
     long old_capacity = map->capacity;
