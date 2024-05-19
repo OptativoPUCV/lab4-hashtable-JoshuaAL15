@@ -59,7 +59,17 @@ HashMap * createMap(long capacity) {
     return map;
 }
 
-void eraseMap(HashMap * map,  char * key) {    
+void eraseMap(HashMap * map,  char * key) { 
+    long idx = hash(key, map->capacity);
+
+    while (map->buckets[idx] != NULL) {
+        if (is_equal(map->buckets[idx]->key, key)) {
+            map->buckets[idx]->key = NULL; 
+            map->size--;
+            return;
+        }
+        idx = (idx + 1) % map->capacity;
+    }
 
 
 }
