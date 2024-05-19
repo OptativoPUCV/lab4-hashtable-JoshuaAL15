@@ -172,3 +172,9 @@ Sun 19 May 2024 02:29:34 AM UTC:
  tests:  12|2
 total_score: 40/70
 76d5bf8
+Sun 19 May 2024 02:32:17 AM UTC: 
+ hashmap.c | 33 ++++++++++++++++++++++++++++++---
+ 1 file changed, 30 insertions(+), 3 deletions(-)
+ tests:  17|0
+total_score: 70/70
+a5d5df6
